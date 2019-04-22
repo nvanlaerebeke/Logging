@@ -2,17 +2,18 @@
 <Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Target Name="ILRepacker" AfterTargets="Build">
     <ItemGroup>
-      <InputAssemblies Include="$(OutputPath)\*.dll" />
+      <InputAssemblies Include="$(OutputPath)\Logging.*.dll" />
+      <InputAssemblies Include="$(OutputPath)\log4net.dll" />
     </ItemGroup>
     <ILRepack
       Parallel="true"
-      Internalize="false"
+      Internalize="true"
       InternalizeExclude="@(DoNotInternalizeAssemblies)"
       InputAssemblies="@(InputAssemblies)"
       TargetKind="Dll"
       DebugInfo="true"
       OutputFile="../../bin/$(AssemblyName).dll"
-      AttributeFile="$(OutputPath)\Logging.Log4Net.dll"
+      AttributeFile="$(OutputPath)\Logging.dll"
       Verbose="true"
       Wildcards="true" />
   </Target>
