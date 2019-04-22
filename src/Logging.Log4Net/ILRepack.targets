@@ -6,7 +6,7 @@
     </ItemGroup>
     <ILRepack
       Parallel="true"
-      Internalize="false"
+      Internalize="true"
       InternalizeExclude="@(DoNotInternalizeAssemblies)"
       InputAssemblies="@(InputAssemblies)"
       TargetKind="Dll"
