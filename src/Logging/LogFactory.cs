@@ -10,6 +10,10 @@ namespace Logging {
             Provider = pProvider;
         }
 
+        public static ILogProvider GetProvider() {
+            return Provider;
+        }
+
         public static ILog GetLogger(Type pType) {
             return Provider.GetLogger(pType);
         }
